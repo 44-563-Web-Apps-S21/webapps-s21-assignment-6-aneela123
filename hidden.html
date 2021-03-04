@@ -2,35 +2,49 @@
 <html>
     <head>
         <title>My JavaScript</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            h2{
+                font-weight: 700;
+                color: brown;
+            }
+            form{
+                width: 200px;
+                margin-left: 10px;
+            }
+        </style>
     </head>
  
 <body>
 
-<h2>Hidden thingsby Jahna Sri Aneela Ankam</h2>
+<h2 class="text-center p-2 "> Hidden things by Jahna Sri Aneela Ankam</h2>
 
 <form>
     <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30  class="form-control"> <br>
 
     <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus class="form-control"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" class="btn btn-secondary" onclick="resolveForm()" value="Get values from form">
 </form>
 
 
 <p id="result">This text will be replaced </p>
 <form>
     <label for="form1_password">Enter the secret word </label>
-    <input type="password" id="form1_password" name="form1_password" value="Secret" min=10 max=50 step=2 value=30>
+    <input type="password" id="form1_password" class="form-control" name="form1_password" value="Secret" min=10 max=50 step=2 value=30>
     <br>
     <label for="form1_Guess">Enter a guess</label>
-    <input type="text" id="form1_Guess" name="form1_Guess" autofocus> <br>
-    <input type="button" onclick="processGuess()" value="Check the guess">
+    <input type="text" id="form1_Guess" name="form1_Guess" class="form-control" autofocus> <br>
+    <input type="button" onclick="processGuess()" class="btn btn-primary" value="Check the guess">
 </form>
 <p id="AN">Guess the password </p>
 <div class="container">
-    <img src="images/abelia.jpg" onClick="rotateImage()" id="image" alt="ABELIA" width="200" height="200">
+    <img src="images/abelia.jpg" class="img-thumbnail" onClick="rotateImage()" id="image" alt="ABELIA" width="200" height="200">
     <script>
         var correct = 0;
         var wrong = 0;
@@ -64,7 +78,7 @@
                     break;
                 case 2:
                     image.setAttribute('src', 'images/neomarica.jpg');
-                    Img = Img + 1;
+                    Img = 0;
                     break;
             }
 
