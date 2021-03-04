@@ -1,89 +1,39 @@
 <!DOCTYPE html>
 <html>
-
+ 
 <body>
 
-    <h2>Getting input</h2>
+<h2>Getting input</h2>
 
-    <form>
-        <label for="form1_age">What is your age </label>
-        <input type="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
-        <label for="form1_nick">What is your nickname </label>
-        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-        <input type="button" onclick="resolveForm()" value="Get values from form">
-    </form>
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
 
 
-    <p id="result">This text will be replaced </p>
-    <form>
-        <label for="form1_password">Enter the secret word </label>
-        <input type="password" id="form1_password" name="form1_password" value="Secret" min=10 max=50 step=2 value=30>
-        <br>
-        <label for="form1_Guess">Enter a guess</label>
-        <input type="text" id="form1_Guess" name="form1_Guess" autofocus> <br>
-        <input type="button" onclick="processGuess()" value="Check the guess">
-    </form>
-    <p id="AN">Guess the password </p>
-    <div class="container">
-        <img src="images/abelia.jpg" onClick="rotateImage()" id="image" alt="ABELIA" width="200" height="200">
-        <script>
-            var correct = 0;
-            var wrong = 0;
-            function processGuess() {
-                var A = document.getElementById("form1_password").value
-                var N = document.getElementById("form1_Guess").value
-                out = document.getElementById("GP")
-                if (A == N) {
-                    alert("Congratulations");
-                    correct = correct + 1;
-                    out.innerHTML = "correct " + correct + " wrong " + wrong
+<p id="result">This text will be replaced </p>
 
-                } else {
-                    alert("Sorry");
-                    wrong = wrong + 1;
-                    out.innerHTML = "correct " + correct + " wrong " + wrong
+<script> 
 
-                }
-            }
-
-            var Img = 0;
-            function rotateImage() {
-                switch (Img) {
-                    case 0:
-                        image.setAttribute('src', 'images/abelia.jpg');
-                        Img = Img + 1;
-                        break;
-                    case 1:
-                        image.setAttribute('src', 'images/abroma.jpg');
-                        Img = Img + 1;
-                        break;
-                    case 2:
-                        image.setAttribute('src', 'images/neomarica.jpg');
-                        Img = Img + 1;
-                        break;
-                }
-
-            }
-
-            
-
-                function resolveForm (){
-                    console.log("Getting form values")
-                    age = document.getElementById("form1_age").value
-                    nick = document.getElementById("form1_nick").value
-                    confirmed = confirm("Are these the values? "+age+" and "+nick)
-
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
     out = document.getElementById("result")
     if(confirmed){
-                    out.innerHTML = "Values were confirmed"
-                } else {
-                    out.innerHTML = "Values were not confirmed"
-                }
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
 }
-        </script>
+</script>
 
 </body>
-
-</html>
+</html> 

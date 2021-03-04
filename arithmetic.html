@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Looping computation</title>
+    </head>
+ 
+<body>
+
+<h2>Jahna Sri Aneela Ankam computes</h2>
+<form>
+    <label for="first_number">Enter a number</label>
+    <input type ="number" id="first_number" name="first_number"  value=10> <br>
+
+    <label for="second_number">Enter a number</label>
+    <input type ="number" id="second_number" name="second_number" value=2> <br>
+
+    <input type="button" onclick="permutations()" value="Compute">
+</form>
+
+
+<p id="result">Results will be displayed here</p>
+
+<form>
+    <input type="radio" id="plus" name="calc" onclick="processRadio()" value="plus">
+    <label for="plus">+</label></br>
+  
+    <input type="radio" id="minus" name="calc" onclick="processRadio()" value="minus">
+    <label for="minus">-</label></br>
+
+    <input type="radio" id="times" name="calc" onclick="processRadio()" value="times">
+    <label for="times">*</label></br>
+
+    <input type="radio" id="divide" name="calc" onclick="processRadio()" value="divide">
+    <label for="divide">/</label></br>
+  </form>
+
+  <p id="result2">Results will be displayed here</p>
+
+
+<script> 
+    function permutations(){
+        f = document.getElementById("first_number").value
+        s = document.getElementById("second_number").value
+        var product = 1;
+        let i=f;
+        do{
+            product *=i;
+            i--
+        }while(i>=(f-s+1))
+        out = document.getElementById("result")
+        out.innerHTML = f+" permute "+s+" is "+product
+        }
+    
+    function processRadio(){
+        f = document.getElementById("first_number").value
+        s = document.getElementById("second_number").value
+
+        f=(Number)(f);
+        s=(Number)(s);
+
+        if(document.getElementById("plus").checked){
+            f += s;
+    
+        }else if(document.getElementById("minus").checked){
+            f-=s;
+    
+        }else if(document.getElementById("times").checked){
+            f *= s;
+    
+        }else{
+            f /= s;
+        }
+        out = document.getElementById("result2")
+        out.innerHTML = f
+        }
+</script>
+
+</body>
+</html> 
