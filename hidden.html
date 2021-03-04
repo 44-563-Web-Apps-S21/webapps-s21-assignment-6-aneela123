@@ -23,80 +23,64 @@
 <h2 class="text-center p-2 "> Hidden things by Jahna Sri Aneela Ankam</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30  class="form-control"> <br>
+    <div class="form-group">
+    <label for="form1_secret">Enter the secret word</label>
+    <input type ="password" id="form1_secret" name="form1_secret" min=10 max=50 step=2 value="Secret"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus class="form-control"> <br>
+    <label for="form1_guess">Enter a guess </label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
-    <input type="button" class="btn btn-secondary" onclick="resolveForm()" value="Get values from form">
+    <input type="button" class="btn btn-warning" onclick="processGuess()" value="Check the guess">
+    </div>
 </form>
+<p id="result">Result will be displayed here. </p>
 
-
-<p id="result">This text will be replaced </p>
-<form>
-    <label for="form1_password">Enter the secret word </label>
-    <input type="password" id="form1_password" class="form-control" name="form1_password" value="Secret" min=10 max=50 step=2 value=30>
-    <br>
-    <label for="form1_Guess">Enter a guess</label>
-    <input type="text" id="form1_Guess" name="form1_Guess" class="form-control" autofocus> <br>
-    <input type="button" onclick="processGuess()" class="btn btn-primary" value="Check the guess">
-</form>
-<p id="AN">Guess the password </p>
-<div class="container">
-    <img src="images/abelia.jpg" class="img-thumbnail" onClick="rotateImage()" id="image" alt="ABELIA" width="200" height="200">
+<script> 
+    var correct=0;
+    var wrong=0;
+    function processGuess(){
+        console.log("Getting form values")
+        secret = document.getElementById("form1_secret").value
+        guess= document.getElementById("form1_guess").value
+        out = document.getElementById("result")
+        if(secret == guess){
+            correct=correct+1;
+            alert("congratulations");
+            out.innerHTML = "success attempts"+correct
+        } 
+        else {
+            wrong=wrong+1;
+            alert("sorry");
+            out.innerHTML = "failed attempts"+wrong
+        }
+ }
+    </script>
+    <div class="container">
+        <img id="plants" src="images/abelia.jpg" width="200" height="200" onclick="rotateImage()">
+    </div>
     <script>
-        var correct = 0;
-        var wrong = 0;
-        function processGuess() {
-            var A = document.getElementById("form1_password").value
-            var N = document.getElementById("form1_Guess").value
-            out = document.getElementById("GP")
-            if (A == N) {
-                alert("Congratulations");
-                correct = correct + 1;
-                out.innerHTML = "correct " + correct + " wrong " + wrong
-
-            } else {
-                alert("Sorry");
-                wrong = wrong + 1;
-                out.innerHTML = "correct " + correct + " wrong " + wrong
-
+        var currentImage=0;
+        function rotateImage()
+        {
+    switch(currentImage){
+        case 0:
+            currentImage=currentImage+1;
+            document.getElementById("plants").src= "images/abelia.jpg"
+            break;
+            case 1:
+            currentImage=currentImage+1;
+            document.getElementById("plants").src= "images/abroma.jpg"
+            break;
+            case 2:
+            currentImage=currentImage+1;
+            document.getElementById("plants").src= "images/neomarica.jpg"
+            break;
+            default:
+                currentImage=0
+                document.getElementById("plants").src= "images/abelia.jpg"
             }
         }
-
-        var Img = 0;
-        function rotateImage() {
-            switch (Img) {
-                case 0:
-                    image.setAttribute('src', 'images/abelia.jpg');
-                    Img = Img + 1;
-                    break;
-                case 1:
-                    image.setAttribute('src', 'images/abroma.jpg');
-                    Img = Img + 1;
-                    break;
-                case 2:
-                    image.setAttribute('src', 'images/neomarica.jpg');
-                    Img = 0;
-                    break;
-            }
-
-        }
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
+    </script>
 </script>
 
 </body>
